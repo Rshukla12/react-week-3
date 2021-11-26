@@ -25,4 +25,4 @@ const Timer = ({init, end}) => {
     );
 }
 
-export default Timer
+export default Timer;

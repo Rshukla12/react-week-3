@@ -1,0 +1,103 @@
+/* For main styles */
+.todo {
+    width: 80%;
+    max-width: 24rem;
+    min-height: 80vh;
+    margin: 1rem auto 0rem;
+    padding: 0.25rem 1rem 1rem;
+    background-color: rgba(61, 169, 202, 0.534);
+    border-radius: 20px;
+}
+.show {
+    position: relative;
+    left: -15%;
+    font-size: 1.5rem;
+    top: 0.5rem;
+    border-radius: 5px;
+    background-color: rgba(32, 185, 32, 0.493);
+}
+/* for list */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    height: 25rem;
+}
+/* For item displaying */
+.item {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: left;
+    background-color: white;
+    border: 1px solid gray;
+    padding: 0.5rem 0.2rem;
+    padding-right: 1rem;
+    margin: 0.25rem 0rem;
+    font-size: 1.75rem;
+    border-radius: 5px;
+}
+.itemText {
+    width: 70%;
+    max-width: 24rem;
+}
+.item > input[type="checkbox"]{
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.25rem;
+    margin-right: 0.45rem;
+}
+.item > button {
+    position: relative;
+    right: -0.3rem;
+    border-radius: 5px;
+    background-color: rgba(255, 4, 4, 0.651);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* For input */
+.form {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+.input {
+    width: 100%;
+    margin: auto;
+}
+.input > input[type="text"] {
+    width: 85%;
+    max-width: 20.7rem;
+    font-size: 2rem;
+    border: none;
+    position: relative;
+    top: -0.3rem;
+}
+.input > input[type="text"]:focus {
+    outline: none;
+}
+.input > input[type="submit"] {
+    font-size: 3rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Spinner */
+.spinner {
+    width: 0%;
+    padding: 25%;
+    margin: auto;
+    margin-top: 35%;
+    border-radius: 50%;
+    border: 5px solid gray;
+    border-top: 5px solid black;
+    animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
