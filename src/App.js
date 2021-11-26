@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import './App.css';
-import Todo from './Todo/Todo';
+import Counter from './Counter/Counter';
+// import Todo from './Todo/Todo';
 
 function App() {
+  const [display, setDisplay] = useState(false);
+  
   return (
     <div className="App">
-      <Todo />
+      {/* <Todo /> */}
+      {display && <Counter />}
+      <button onClick={() => setDisplay(!display)}>Display</button>
     </div>
   );
 }
