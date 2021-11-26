@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 import './App.css';
-import InputRef from './Input Ref/InputRef';
+import Form from './Form/Form';
+// import InputRef from './Input Ref/InputRef';
 // import Timer from './Timer/Timer';
 // import Todo from './Todo useEffect/Todo';
 // import Counter from './Counter/Counter';
@@ -18,7 +19,8 @@ function App() {
       <Timer init={30} end={40} />
       <Timer init={5} end={7} /> */}
       {/* <Todo /> */}
-      <InputRef />
+      {/* <InputRef /> */}
+      <Form />
     </div>
   );
 }
