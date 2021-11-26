@@ -1,0 +1,11 @@
+.main {
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn {
+    width: 15%;
+    font-size: 2rem;
+    padding: 0rem 2rem 0.25rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
