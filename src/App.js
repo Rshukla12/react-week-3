@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import Counter from './Counter/Counter';
+import Timer from './Timer/Timer';
+// import Counter from './Counter/Counter';
 // import Todo from './Todo/Todo';
 
 function App() {
@@ -9,8 +10,11 @@ function App() {
   return (
     <div className="App">
       {/* <Todo /> */}
-      {display && <Counter />}
-      <button onClick={() => setDisplay(!display)}>Display</button>
+      {/* {display && <Counter />}
+      <button onClick={() => setDisplay(!display)}>Display</button> */}
+      <Timer init={10} end={15} />
+      <Timer init={30} end={40} />
+      <Timer init={5} end={7} />
     </div>
   );
 }
