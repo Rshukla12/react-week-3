@@ -11,23 +11,13 @@
       "id": 2
     },
     {
-      "title": "Learn React",
-      "status": true,
-      "id": 4
-    },
-    {
       "title": "Learn JS",
       "status": true,
       "id": 5
     },
     {
-      "title": "car",
-      "status": false,
-      "id": 7
-    },
-    {
       "title": "bike",
-      "status": false,
+      "status": true,
       "id": 8
     },
     {
@@ -39,6 +29,11 @@
       "title": "learn react",
       "status": false,
       "id": 10
+    },
+    {
+      "title": "Learn JS",
+      "status": false,
+      "id": 11
     }
   ]
 }
