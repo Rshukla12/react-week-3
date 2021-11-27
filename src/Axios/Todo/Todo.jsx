@@ -7,6 +7,7 @@ import axios from "axios";
 const Todo = () => {
     const [tasks, setTasks] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
     
     const getTasks = () => {
         axios.get("http://localhost:3000/tasks")
@@ -15,9 +16,10 @@ const Todo = () => {
                 setTasks(res.data)
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
+                setIsError(true);
             })
-            .then( setIsLoading(false) );
+            .finally( setIsLoading(false) );
     }
 
     const onCreateTask = ({ title }) => {
@@ -38,29 +40,22 @@ const Todo = () => {
         })
         .catch( err => {
             console.log(err);
+            setIsError(true);
         })
     }
     
-    // const removeTask = (id) => {
-    //     const config = {
-    //         method: "DELETE",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }
-    //     setIsLoading(true);
-    //     return fetch(`http://localhost:3000/tasks/${id}`, config)
-    //     .then(res => res.json())
-    //     .then( () =>  { 
-    //     })
-    //     .catch( err => {
-    //         console.log(err);
-    //     })
-    // }
+    const removeTask = (id) => {
+        setIsLoading(true);
+        axios.delete(`http://localhost:3000/tasks/${id}`)
+        .then(() => getTasks())
+        .catch(err=>{
+            console.log(err);
+            setIsError(true);
+        })
+    }
 
     const handleTaskToggle = (id) => {
         const curr = tasks.filter(item => item.id === id )[0];
-        console.log(curr);
         curr.status = !curr.status
         const config = {
             method: "patch",
@@ -75,6 +70,7 @@ const Todo = () => {
         })
         .catch( err => {
             console.log(err);
+            setIsError(true);
         })
     }
 
@@ -95,13 +91,13 @@ const Todo = () => {
             <h1>TODO</h1>
             {isLoading ? (
                 <div className={style.spinner}></div>
-            ) :  ( 
+            ) : isError ? <div>Something went wrong </div> : ( 
                 <div>
                     <TodoInput handleCreateTask={onCreateTask} />
-                    <TodoList data={tasks} handleTaskToggle={handleTaskToggle}/>
+                    <TodoList data={tasks} handleTaskToggle={handleTaskToggle} handleRemoveTask={removeTask} />
+                    <button onClick={updateAll}>Update All</button>
                 </div>
             )}
-            <button onClick={updateAll}>Update All</button>
         </div>
     )
 }
